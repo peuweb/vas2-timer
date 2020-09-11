@@ -1,6 +1,6 @@
 import React from "react";
 import Contador from "./components/Contador";
-import { Container, Grid, Paper, Fab } from "@material-ui/core";
+import { Container, Grid, Paper } from "@material-ui/core";
 
 function App() {
   return (
@@ -12,12 +12,12 @@ function App() {
         spacing={4}
         style={{ height: "100vh" }}
       >
-        <Grid item xs={6}>
+        <Grid item xs>
           <Paper>
             <Contador boss="veneno" />
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs>
           <Paper>
             <Contador boss="nightblade" />
           </Paper>

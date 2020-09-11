@@ -11,7 +11,7 @@ import { Button, Typography, Grid, Avatar } from "@material-ui/core";
 
 const ContadorRenderer = ({ hours, minutes, seconds, completed }) => {
   return (
-    <Typography variant="h1">
+    <Typography variant="h2">
       {zeroPad(minutes)}:{zeroPad(seconds)}
     </Typography>
   );
@@ -35,12 +35,15 @@ const Contador = ({ boss }) => {
     soundEffect.play();
     countDownRef.current.api.start();
   };
+
   const reset = () => {
     const randomRef = Math.random().toString(36);
     setCurrentKey(`timer_${randomRef}`);
   };
 
   const onTickHandler = (delta) => {
+    // console.log(countDownRef.current.isPaused());
+
     // veneno - foco 00:50
     if (boss === "veneno" && delta.minutes === 0 && delta.seconds === 50) {
       soundEffect.src = somFocoBossVeneno;
@@ -86,14 +89,14 @@ const Contador = ({ boss }) => {
 
   return (
     <div>
-      <Grid container justify="center" spacing={5}>
-        <Grid item sm={12} justify="center" style={{ textAlign: "center" }}>
+      <Grid container justify="center" spacing={2}>
+        <Grid item xs={12} style={{ textAlign: "center" }}>
           <Avatar
             src={avatarUrl}
-            style={{ width: "200px", height: "200px", margin: "0 auto" }}
+            style={{ width: "30%", height: "auto", margin: "0 auto" }}
           />
         </Grid>
-        <Grid item sm={12} style={{ textAlign: "center" }}>
+        <Grid item xs={12} style={{ textAlign: "center" }}>
           <Countdown
             key={currentKey}
             ref={countDownRef}
