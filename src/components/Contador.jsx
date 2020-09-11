@@ -104,6 +104,7 @@ const Contador = ({ boss }) => {
             autoStart={autoStart}
             renderer={ContadorRenderer}
             onTick={onTickHandler}
+            onComplete={reset}
           />
         </Grid>
         <Grid item>
